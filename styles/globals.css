@@ -86,14 +86,3 @@ body {
     display: inline-block;
   }
 }
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.scrolling-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.scrolling-wrapper {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}

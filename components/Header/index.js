@@ -6,7 +6,12 @@ import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import Button from "../Button"
 
-const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
+const Header = ({
+  handleWorkScroll,
+  handleAboutScroll,
+  handleContactScroll,
+  isBlog,
+}) => {
   const router = useRouter()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -71,13 +76,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                     Resume
                   </Button>
 
-                  <Button
-                    onClick={() =>
-                      window.open("mailto:sam.colebourn@gmail.com")
-                    }
-                  >
-                    Contact
-                  </Button>
+                  <Button onClick={handleContactScroll}>Contact</Button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1">
@@ -91,13 +90,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                     Resume
                   </Button>
 
-                  <Button
-                    onClick={() =>
-                      window.open("mailto:sam.colebourn@gmail.com")
-                    }
-                  >
-                    Contact
-                  </Button>
+                  <Button onClick={handleContactScroll}>Contact</Button>
                 </div>
               )}
             </Popover.Panel>
@@ -123,11 +116,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               Resume
             </Button>
 
-            <Button
-              onClick={() => window.open("mailto:sam.colebourn@gmail.com")}
-            >
-              Contact
-            </Button>
+            <Button onClick={handleContactScroll}>Contact</Button>
             {mounted && theme && (
               <Button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -146,11 +135,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               Resume
             </Button>
 
-            <Button
-              onClick={() => window.open("mailto:sam.colebourn@gmail.com")}
-            >
-              Contact
-            </Button>
+            <Button onClick={handleContactScroll}>Contact</Button>
 
             {mounted && theme && (
               <Button
