@@ -1,58 +1,49 @@
-import { useRef } from "react";
-import Header from "../components/Header";
-import ServiceCard from "../components/ServiceCard";
-import Socials from "../components/Socials";
-import WorkCard from "../components/WorkCard";
-import { useIsomorphicLayoutEffect } from "../utils";
-import { stagger } from "../animations";
-import Footer from "../components/Footer";
-import Head from "next/head";
-import Button from "../components/Button";
-import Link from "next/link";
-import Cursor from "../components/Cursor";
-
-// Local Data
-import data from "../data/portfolio.json";
+import { useRef } from "react"
+import Header from "../components/Header"
+import ServiceCard from "../components/ServiceCard"
+import WorkCard from "../components/WorkCard"
+import { useIsomorphicLayoutEffect } from "../utils"
+import { stagger } from "../animations"
+import Footer from "../components/Footer"
+import Head from "next/head"
 
 export default function Home() {
   // Ref
-  const workRef = useRef();
-  const aboutRef = useRef();
-  const textOne = useRef();
-  const textTwo = useRef();
-  const textThree = useRef();
-  const textFour = useRef();
+  const workRef = useRef()
+  const aboutRef = useRef()
+  const textOne = useRef()
+  const textTwo = useRef()
+  const textThree = useRef()
 
   // Handling Scroll
   const handleWorkScroll = () => {
     window.scrollTo({
-      top: workRef.current.offsetTop,
+      top: workRef.current.offsetTop - 10,
       left: 0,
       behavior: "smooth",
-    });
-  };
+    })
+  }
 
   const handleAboutScroll = () => {
     window.scrollTo({
-      top: aboutRef.current.offsetTop,
+      top: aboutRef.current.offsetTop - 10,
       left: 0,
       behavior: "smooth",
-    });
-  };
+    })
+  }
 
   useIsomorphicLayoutEffect(() => {
     stagger(
-      [textOne.current, textTwo.current, textThree.current, textFour.current],
+      [textOne.current, textTwo.current, textThree.current],
       { y: 40, x: -10, transform: "scale(0.95) skew(10deg)" },
       { y: 0, x: 0, transform: "scale(1)" }
-    );
-  }, []);
+    )
+  }, [])
 
   return (
-    <div className={`relative ${data.showCursor && "cursor-none"}`}>
-      {data.showCursor && <Cursor />}
+    <div className={`relative`}>
       <Head>
-        <title>{data.name}</title>
+        <title>Sam Colebourn</title>
       </Head>
 
       <div className="gradient-circle"></div>
@@ -67,76 +58,110 @@ export default function Home() {
           <div className="mt-5">
             <h1
               ref={textOne}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
+              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-center text-bold mob:w-full"
             >
-              {data.headerTaglineOne}
+              Sam Colebourn
             </h1>
             <h1
               ref={textTwo}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-center text-bold w-full"
             >
-              {data.headerTaglineTwo}
+              Developer and Student
             </h1>
             <h1
               ref={textThree}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-center text-bold w-full"
             >
-              {data.headerTaglineThree}
-            </h1>
-            <h1
-              ref={textFour}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
-            >
-              {data.headerTaglineFour}
+              Based in Boston, MA
             </h1>
           </div>
-
-          <Socials className="mt-2 laptop:mt-5" />
         </div>
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="text-2xl text-bold">Work.</h1>
-
-          <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
-            {data.projects.map((project) => (
-              <WorkCard
-                key={project.id}
-                img={project.imageSrc}
-                name={project.title}
-                description={project.description}
-                onClick={() => window.open(project.url)}
-              />
-            ))}
+          <h1 className="tablet:m-10 text-4xl text-bold text-center">Work</h1>
+          <div className="scrolling-wrapper">
+            <WorkCard
+              name={"Software Developer"}
+              description={
+                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. \nStructured a Shared Kernel to separate code into a clean architecture solution.\nImplemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses."
+              }
+              when={"May 2021 - August 2021"}
+              onClick={() => window.open("https://www.google.com")}
+            />
+            <WorkCard
+              name={"Software Developer"}
+              description={
+                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. \nStructured a Shared Kernel to separate code into a clean architecture solution.\nImplemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses."
+              }
+              when={"May 2021 - August 2021"}
+              onClick={() => window.open("https://www.google.com")}
+            />
+            <WorkCard
+              name={"Software Developer"}
+              description={
+                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. \nStructured a Shared Kernel to separate code into a clean architecture solution.\nImplemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses."
+              }
+              when={"May 2021 - August 2021"}
+              onClick={() => window.open("https://www.google.com")}
+            />
+            <WorkCard
+              name={"Software Developer"}
+              description={
+                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. \nStructured a Shared Kernel to separate code into a clean architecture solution.\nImplemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses."
+              }
+              when={"May 2021 - August 2021"}
+              onClick={() => window.open("https://www.google.com")}
+            />
+            <WorkCard
+              name={"Software Developer"}
+              description={
+                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. \nStructured a Shared Kernel to separate code into a clean architecture solution.\nImplemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses."
+              }
+              when={"May 2021 - August 2021"}
+              onClick={() => window.open("https://www.google.com")}
+            />
+            <WorkCard
+              name={"Software Developer"}
+              description={
+                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. \nStructured a Shared Kernel to separate code into a clean architecture solution.\nImplemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses."
+              }
+              when={"May 2021 - August 2021"}
+              onClick={() => window.open("https://www.google.com")}
+            />
           </div>
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="tablet:m-10 text-2xl text-bold">Services.</h1>
+          <h1 className="tablet:m-10 text-4xl text-bold text-center">
+            Services
+          </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            {data.services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                name={service.title}
-                description={service.description}
-              />
-            ))}
+            <ServiceCard
+              key={1}
+              name={"Web Design"}
+              description={"Web Design Description"}
+            />
+            <ServiceCard
+              key={2}
+              name={"Other Service"}
+              description={"Other description bla bla bla bla bla bla "}
+            />
           </div>
         </div>
-        {/* This button should not go into production */}
-        {process.env.NODE_ENV === "development" && (
-          <div className="fixed bottom-5 right-5">
-            <Link href="/edit">
-              <Button type="primary">Edit Data</Button>
-            </Link>
-          </div>
-        )}
         <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:m-10 text-2xl text-bold">About.</h1>
+          <h1 className="tablet:m-10 text-4xl text-bold text-center">About</h1>
           <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
-            {data.aboutpara}
+            Im currently a Junior pursuing a Computer Science degree at WPI.
+          </p>
+          <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
+            Outside of my life at WPI, I spend my breaks working for internships
+            concentrated on developing Microsoft Azure solutions. In my free
+            time, I like to research and learn new programming languages,
+            develop my skills, and investigate/implement fun and practical IoT
+            projects.
           </p>
         </div>
         <Footer />
       </div>
     </div>
-  );
+  )
 }

@@ -1,0 +1,15 @@
+{
+  "socials": [
+    {
+      "id": "1",
+      "title": "Github",
+      "link": "https://github.com/ColebournS"
+    },
+    {
+      "id": "2",
+      "title": "LinkedIn",
+      "link": "https://www.linkedin.com/in/sam-colebourn/"
+    },
+    { "id": "5", "title": "Email", "link": "mailto:sam.colebourn@gmail.com" }
+  ]
+}
