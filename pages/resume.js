@@ -114,6 +114,8 @@ const Resume = () => {
                         <li>GitHub</li>
                         <li>Azure</li>
                         <li>AWS</li>
+                        <li>Docker</li>
+                        <li>Jira</li>
                       </ul>
                     </div>
                     <div>
