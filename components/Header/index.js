@@ -61,13 +61,14 @@ const Header = ({
             </div>
             <Popover.Panel
               className={`absolute right-0 z-10 w-11/12 p-4 ${
-                theme === "dark" ? "bg-slate-800" : "bg-white"
+                theme === "light" ? "bg-white" : "bg-slate-800"
               } shadow-md rounded-md`}
             >
               {!isBlog ? (
                 <div className="grid grid-cols-1">
                   <Button onClick={handleWorkScroll}>Work</Button>
                   <Button onClick={handleAboutScroll}>About</Button>
+                  <Button onClick={handleContactScroll}>Contact</Button>
                   <Button
                     onClick={() =>
                       window.open("mailto:sam.colebourn@gmail.com")
@@ -75,8 +76,6 @@ const Header = ({
                   >
                     Resume
                   </Button>
-
-                  <Button onClick={handleContactScroll}>Contact</Button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1">
@@ -89,8 +88,6 @@ const Header = ({
                   >
                     Resume
                   </Button>
-
-                  <Button onClick={handleContactScroll}>Contact</Button>
                 </div>
               )}
             </Popover.Panel>
@@ -100,7 +97,7 @@ const Header = ({
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
           theme === "light" && "bg-white"
-        } dark:text-white top-0 z-10 tablet:flex`}
+        } light:text-black top-0 z-10 tablet:flex`}
       >
         <h1
           onClick={() => router.push("/")}
@@ -112,11 +109,12 @@ const Header = ({
           <div className="flex">
             <Button onClick={handleWorkScroll}>Work</Button>
             <Button onClick={handleAboutScroll}>About</Button>
+            <Button onClick={handleContactScroll}>Contact</Button>
+
             <Button onClick={() => router.push("/resume")} classes="first:ml-1">
               Resume
             </Button>
 
-            <Button onClick={handleContactScroll}>Contact</Button>
             {mounted && theme && (
               <Button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -134,8 +132,6 @@ const Header = ({
             <Button onClick={() => router.push("/resume")} classes="first:ml-1">
               Resume
             </Button>
-
-            <Button onClick={handleContactScroll}>Contact</Button>
 
             {mounted && theme && (
               <Button

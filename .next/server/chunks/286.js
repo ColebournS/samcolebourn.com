@@ -24,14 +24,14 @@ const Button = ({ children , type , onClick , classes  })=>{
         return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
             onClick: onClick,
             type: "button",
-            className: `text-sm tablet:text-base p-1 laptop:p-2 m-1 laptop:m-2 rounded-lg ${theme === "dark" ? "bg-white text-black" : "bg-black text-white"}  transition-all duration-300 ease-out first:ml-0 hover:scale-105 active:scale-100 link ${classes}`,
+            className: `text-sm tablet:text-base p-1 laptop:p-2 m-1 laptop:m-2 rounded-lg ${theme === "light" ? "bg-black text-white" : "bg-white text-black"}  transition-all duration-300 ease-out first:ml-0 hover:scale-105 active:scale-100 link ${classes}`,
             children: children
         });
     }
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
         onClick: onClick,
         type: "button",
-        className: `text-sm tablet:text-base p-1 laptop:p-2 m-1 laptop:m-2 rounded-lg flex items-center transition-all ease-out duration-300 ${theme === "dark" ? "hover:bg-slate-600 text-white" : "hover:bg-slate-100"} hover:scale-105 active:scale-100  tablet:first:ml-0 ${classes} link`,
+        className: `text-sm tablet:text-base p-1 laptop:p-2 m-1 laptop:m-2 rounded-lg flex items-center transition-all ease-out duration-300 ${theme === "light" ? "hover:bg-slate-100" : "hover:bg-slate-600 text-white"} hover:scale-105 active:scale-100  tablet:first:ml-0 ${classes} link`,
         children: children
     });
 };
@@ -109,7 +109,7 @@ const Header = ({ handleWorkScroll , handleAboutScroll , handleContactScroll , i
                                 ]
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_headlessui_react__WEBPACK_IMPORTED_MODULE_1__.Popover.Panel, {
-                                className: `absolute right-0 z-10 w-11/12 p-4 ${theme === "dark" ? "bg-slate-800" : "bg-white"} shadow-md rounded-md`,
+                                className: `absolute right-0 z-10 w-11/12 p-4 ${theme === "light" ? "bg-white" : "bg-slate-800"} shadow-md rounded-md`,
                                 children: !isBlog ? /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                     className: "grid grid-cols-1",
                                     children: [
@@ -122,13 +122,13 @@ const Header = ({ handleWorkScroll , handleAboutScroll , handleContactScroll , i
                                             children: "About"
                                         }),
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
+                                            onClick: handleContactScroll,
+                                            children: "Contact"
+                                        }),
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                                             onClick: ()=>window.open("mailto:sam.colebourn@gmail.com")
                                             ,
                                             children: "Resume"
-                                        }),
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                                            onClick: handleContactScroll,
-                                            children: "Contact"
                                         })
                                     ]
                                 }) : /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -145,10 +145,6 @@ const Header = ({ handleWorkScroll , handleAboutScroll , handleContactScroll , i
                                             ,
                                             classes: "first:ml-1",
                                             children: "Resume"
-                                        }),
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                                            onClick: handleContactScroll,
-                                            children: "Contact"
                                         })
                                     ]
                                 })
@@ -157,7 +153,7 @@ const Header = ({ handleWorkScroll , handleAboutScroll , handleContactScroll , i
                     })
             }),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: `mt-10 hidden flex-row items-center justify-between sticky ${theme === "light" && "bg-white"} dark:text-white top-0 z-10 tablet:flex`,
+                className: `mt-10 hidden flex-row items-center justify-between sticky ${theme === "light" && "bg-white"} light:text-black top-0 z-10 tablet:flex`,
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
                         onClick: ()=>router.push("/")
@@ -177,14 +173,14 @@ const Header = ({ handleWorkScroll , handleAboutScroll , handleContactScroll , i
                                 children: "About"
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
+                                onClick: handleContactScroll,
+                                children: "Contact"
+                            }),
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                                 onClick: ()=>router.push("/resume")
                                 ,
                                 classes: "first:ml-1",
                                 children: "Resume"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                                onClick: handleContactScroll,
-                                children: "Contact"
                             }),
                             mounted && theme && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                                 onClick: ()=>setTheme(theme === "dark" ? "light" : "dark")
@@ -208,10 +204,6 @@ const Header = ({ handleWorkScroll , handleAboutScroll , handleContactScroll , i
                                 ,
                                 classes: "first:ml-1",
                                 children: "Resume"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                                onClick: handleContactScroll,
-                                children: "Contact"
                             }),
                             mounted && theme && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Button__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                                 onClick: ()=>setTheme(theme === "dark" ? "light" : "dark")
