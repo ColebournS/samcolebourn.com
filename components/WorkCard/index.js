@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { useTheme } from "next-themes"
 
 const WorkCard = ({ name, role, when, description }) => {
   const { theme } = useTheme()
-  const [mounted, setMounted] = useState()
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
   return (
     <div
       className={`card w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 ${
-        mounted && theme === "dark" ? "bg-slate-800" : "bg-slate-100"
-      } hover:scale-105 link`}
+        theme === "light" ? "bg-slate-100" : "bg-slate-800"
+      } hover:scale-105`}
     >
       <h2 className="mt-5 text-xl opacity-50">{when}</h2>
       <h1 className="text-3xl font-medium">{name}</h1>
