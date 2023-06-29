@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const App = ({ Component , pageProps  })=>{
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_themes__WEBPACK_IMPORTED_MODULE_1__.ThemeProvider, {
+        defaultTheme: "dark",
         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
             ...pageProps
         })

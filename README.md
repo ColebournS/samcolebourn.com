@@ -1,5 +1,6 @@
+samcolebourn.com
 
-### Features - 
+### Features -
 
 - Modern Stack (Next.js + TailwindCSS)
 - Minimal Design
@@ -8,15 +9,8 @@
 - Blog Crud (Create, Read, Update, Delete blog with easy to use UI).
 - Dark Mode
 
-
 ### How To Use
 
 - Clone this repo
 - run `yarn`
 - `yarn dev`
-
-
-
-
-
-

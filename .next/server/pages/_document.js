@@ -140,38 +140,6 @@ if (typeof exports.default === "function" || typeof exports.default === "object"
 
 /***/ }),
 
-/***/ 686:
-/***/ ((module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.cancelIdleCallback = exports.requestIdleCallback = void 0;
-const requestIdleCallback = typeof self !== "undefined" && self.requestIdleCallback && self.requestIdleCallback.bind(window) || function(cb) {
-    let start = Date.now();
-    return setTimeout(function() {
-        cb({
-            didTimeout: false,
-            timeRemaining: function() {
-                return Math.max(0, 50 - (Date.now() - start));
-            }
-        });
-    }, 1);
-};
-exports.requestIdleCallback = requestIdleCallback;
-const cancelIdleCallback = typeof self !== "undefined" && self.cancelIdleCallback && self.cancelIdleCallback.bind(window) || function(id) {
-    return clearTimeout(id);
-};
-exports.cancelIdleCallback = cancelIdleCallback;
-if (typeof exports.default === "function" || typeof exports.default === "object" && exports.default !== null) {
-    Object.assign(exports.default, exports);
-    module.exports = exports.default;
-} //# sourceMappingURL=request-idle-callback.js.map
-
-
-/***/ }),
-
 /***/ 573:
 /***/ ((module, exports, __webpack_require__) => {
 
@@ -1128,7 +1096,7 @@ module.exports = require("react");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(81));
+var __webpack_exports__ = __webpack_require__.X(0, [686], () => (__webpack_exec__(81)));
 module.exports = __webpack_exports__;
 
 })();

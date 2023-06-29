@@ -6,6 +6,7 @@ import { useIsomorphicLayoutEffect } from "../utils"
 import { stagger } from "../animations"
 import Socials from "../components/Socials"
 import Head from "next/head"
+import Image from "next/image"
 
 export default function Home() {
   // Ref
@@ -63,25 +64,38 @@ export default function Home() {
           handleContactScroll={handleContactScroll}
         />
         <div className="laptop:mt-20 mt-10">
-          <div className="mt-5">
-            <h1
-              ref={textOne}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold mob:w-full"
-            >
-              Sam Colebourn
-            </h1>
-            <h1
-              ref={textTwo}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2  text-bold w-full"
-            >
-              Developer and Student
-            </h1>
-            <h1
-              ref={textThree}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2  text-bold w-full"
-            >
-              Based in Boston, MA
-            </h1>
+          <div className="mt-5 tablet:my-10 flex flex-col tablet:flex-row gap-10">
+            <div className="flex flex-col">
+              <h1
+                ref={textOne}
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold"
+              >
+                Sam Colebourn
+              </h1>
+              <h1
+                ref={textTwo}
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2  text-bold"
+              >
+                Developer and Student
+              </h1>
+              <h1
+                ref={textThree}
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2  text-bold"
+              >
+                Based in Boston, MA
+              </h1>
+            </div>
+            {/*            
+            <div className="flex items-center justify-center">
+              <Image
+                src="/images/sam.JPG"
+                alt="Sam Colebourn"
+                width={300}
+                height={300}
+                priority={true}
+                className="rounded-full object-contain"
+              />
+            </div>*/}
           </div>
         </div>
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
