@@ -15,10 +15,21 @@ const Header = ({
   const router = useRouter()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setScrolled(offset > 0);
+  };
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -96,7 +107,11 @@ const Header = ({
       </Popover>
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          theme === "light" && "bg-white"
+          scrolled && theme === "dark"
+            ? "bg-[#121212] rounded-lg"
+            : scrolled && theme === "light"
+            ? "bg-white"
+            : "bg-transparent"
         } light:text-black top-0 z-10 tablet:flex`}
       >
         <h1
@@ -106,14 +121,10 @@ const Header = ({
           Sam Colebourn
         </h1>
         {!isBlog ? (
-          <div className="flex">
+          <div className={`flex`}>
             <Button onClick={handleWorkScroll}>Work</Button>
             <Button onClick={handleAboutScroll}>About</Button>
             <Button onClick={handleContactScroll}>Contact</Button>
-
-            <Button onClick={() => router.push("/resume")} classes="first:ml-1">
-              Resume
-            </Button>
 
             {mounted && theme && (
               <Button
@@ -147,7 +158,7 @@ const Header = ({
         )}
       </div>
     </>
-  )
+  );
 }
 
 export default Header

@@ -98,29 +98,55 @@ export default function Home() {
             </div>*/}
           </div>
         </div>
+        <div className="mt-10 laptop:mt-10 p-2 laptop:p-0" ref={aboutRef}>
+          <h1 className="tablet:my-10 text-4xl text-bold">About</h1>
+          <p className="tablet:mx-10 mt-2 text-xl laptop:text-xl w-full">
+            Im currently a senior pursuing a Computer Science degree at WPI.
+            Outside of my life at WPI, I spend my breaks working for internships
+            concentrated on developing Microsoft Azure solutions. In my free
+            time, I like to research and learn new programming languages,
+            develop my skills, and investigate/implement fun and practical IoT
+            projects.
+          </p>
+        </div>
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
           <h1 className="tablet:my-10 text-4xl text-bold">Work</h1>
-          <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-3 gap-6">
+          <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             <WorkCard
-              name={"Software Developer at MILL5"}
+              name={"Software Developer at Cognex"}
               description={
-                "Experienced full stack developer creating a MAUI app with C# backend and Azure functions. Developed seamless integration, optimal performance, and enhanced user experience."
+                "Engineered a new automated machine vision lens focusing procedure that is 3x faster, projected to save over 600 focusing hours annually on the production floor. " +
+                "Enhanced consistency and precision of lens focusing by utilizing Modulation Transfer Function for quantifiable focus scoring. " +
+                "Created dynamic vision tools using Vision Pro software to optimize performance and adaptability in various applications. "
               }
               role={"Intern"}
-              when={"May 2021 - August 2021"}
+              when={"May 2024 - August 2024"}
             />
             <WorkCard
               name={"Software Developer at MILL5"}
               description={
-                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. Structured a Shared Kernel to separate code into a clean architecture solution. Implemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses."
+                "Experienced full stack developer creating a MAUI app with C# backend and Azure functions. " +
+                "Developed seamless integration, optimal performance, and enhanced user experience. "
               }
               role={"Intern"}
-              when={"May 2021 - August 2021"}
+              when={"May 2023 - August 2023"}
+            />
+            <WorkCard
+              name={"Software Developer at MILL5"}
+              description={
+                "Created both JavaScript and Typescript React Apps allowing customers to review and adjust licenses, payments, and other settings. " +
+                "Structured a Shared Kernel to separate code into a clean architecture solution. " +
+                "Implemented GitHub Workflows to fully automate versioning, packing, and publishing to private NuGet Package for diverse uses. "
+              }
+              role={"Intern"}
+              when={"May 2022 - August 2022"}
             />
             <WorkCard
               name={"Software Developer at Catalyst Acoustics Group"}
               description={
-                "Developed a Configure Price Quote System leveraging Infor Syteline and SQL Queries for customizable products. Created Automation for sales team using Power Automate and Power BI. Contributed to the development of end-to-end ERP system allowing for the automation of complex manufacturing processes"
+                "Developed a Configure Price Quote System leveraging Infor Syteline and SQL Queries for customizable products. " +
+                "Created Automation for sales team using Power Automate and Power BI. " +
+                "Contributed to the development of end-to-end ERP system allowing for the automation of complex manufacturing processes "
               }
               role={"Intern"}
               when={"May 2021 - August 2021"}
@@ -129,62 +155,37 @@ export default function Home() {
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="tablet:my-10 text-4xl text-bold">Services</h1>
+          <h1 className="tablet:my-10 text-4xl text-bold">Projects</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            <ServiceCard
-              key={1}
-              name={"Web Development"}
+            <WorkCard
+              name={"Remote Energy Monitoring System Project"}
               description={
-                "Building immersive and responsive web applications with modern technologies for enhanced user experiences and seamless functionality."
+                "Created a Remote Energy Monitoring System for micro-hydro plants in Indonesia. " +
+                "Developed React application with real-time energy monitoring through AWS IoT Core integration"
               }
+              role={""}
+              when={"September 2023 - December 2023"}
             />
-            <ServiceCard
-              key={1}
-              name={"Custom Software Solutions"}
-              description={
-                "Building immersive and responsive web applications with modern technologies for enhanced user experiences and seamless functionality."
-              }
-            />
-            <ServiceCard
-              key={1}
-              name={"Automation Solutions"}
-              description={
-                "Building immersive and responsive web applications with modern technologies for enhanced user experiences and seamless functionality."
-              }
-            />
-            <ServiceCard
-              key={1}
-              name={"AI as a Service"}
-              description={
-                "Harnessing the power of artificial intelligence to develop intelligent software systems that automate tasks, provide data-driven insights, and enhance decision-making capabilities."
-              }
+            <WorkCard
+              name={"Hospital Kiosk Application"}
+              description={""}
+              role={"Lead Software Developer"}
+              when={"January 2023 - March 2023"}
             />
           </div>
         </div>
-        <div className="mt-10 laptop:mt-10 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:my-10 text-4xl text-bold">About</h1>
-          <p className="tablet:mx-10 mt-2 text-xl laptop:text-xl w-full laptop:w-3/5">
-            Im currently a Junior pursuing a Computer Science degree at WPI.
-          </p>
-          <p className="tablet:mx-10 mt-2 text-xl laptop:text-xl w-full laptop:w-3/5">
-            Outside of my life at WPI, I spend my breaks working for internships
-            concentrated on developing Microsoft Azure solutions. In my free
-            time, I like to research and learn new programming languages,
-            develop my skills, and investigate/implement fun and practical IoT
-            projects.
-          </p>
-        </div>
         <div className="mt-10 laptop:mt-10 p-2 laptop:p-0" ref={contactRef}>
           <h1 className="mt-20 mb-10 text-4xl text-bold">Contact</h1>
-          <p className="tablet:mx-10 mt-2 text-5xl laptop:text-5xl w-full laptop:w-3/5">
+          <p className="tablet:mx-10 mt-2 text-5xl laptop:text-5xl w-full laptop:w-3/5 my-5">
             Let&apos;s Work Together!
           </p>
-          <button
-            type="button"
-            className="text-sm tablet:text-base p-1 laptop:p-2 mx-10 mt-5 mb-20 laptop:mx-10 rounded-lg bg-white text-black transition-all duration-300 ease-out first:ml-0 hover:scale-105 active:scale-100 link cursor-none  undefined"
+
+          <a
+            className="text-sm tablet:text-base p-1 laptop:p-2 mx-10 my-10 rounded-lg bg-white text-black"
+            onClick={() => window.open("mailto:sam.colebourn@gmail.com")}
           >
             Schedule a call
-          </button>
+          </a>
         </div>
         <div
           className="mt-10"
@@ -194,5 +195,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
