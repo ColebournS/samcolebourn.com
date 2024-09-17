@@ -168,7 +168,10 @@ export default function Home() {
             />
             <WorkCard
               name={"Hospital Kiosk Application"}
-              description={""}
+              description={
+                "Led a 10-member team in developing a Hospital Kiosk application, following agile development." + 
+                "Developed a robust and efficient system using Java, Hibernate ORM, and Postgres." + 
+                "Conducted code reviews and JUnit testing, ensuring high-quality code and adherence to best coding practices."}
               role={"Lead Software Developer"}
               when={"January 2023 - March 2023"}
             />
