@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Associate Software Engineer",
+    "company": "Jahnel Group",
+    "location": "Schenectady, NY",
+    "period": "Jun. 2025 - Present",
+    "text": "Developed REST APIs in Python to improve content delivery for an application with 1B+ downloads and 70M monthly active users. Optimized reliability and performance, achieving 99.8% uptime, p95 latency under 200–300ms, and 2,500 requests per minute per Kubernetes pod."
+  },
+  {
+    "title": "Software Engineer - Independent Contractor",
+    "company": "Catalyst Acoustic Group",
+    "location": "Agawam, MA",
+    "period": "Jan. 2025 - Jun. 2025",
+    "text": "Built a Configure, Price, Quote (CPQ) system with SQL Server and Infor SyteLine to accelerate sales. Customized ERP system processes in Infor SyteLine to streamline manufacturing operations."
+  },
+  {
+    "title": "Software Engineering Intern in Test Engineering",
+    "company": "Cognex",
+    "location": "Natick, MA",
+    "period": "May 2024 - Aug. 2024",
+    "text": "Engineered a new automated machine vision lens focusing procedure that is 3x faster, projected to save over 600 focusing hours annually on the production floor using C# and Python. Enhanced consistency and precision of lens focusing by utilizing Modulation Transfer Function for quantifiable focus scoring."
+  },
+  {
+    "title": "Full Stack Software Engineering Intern",
+    "company": "MILL5",
+    "location": "Boston, MA",
+    "period": "May 2023 - Aug. 2023",
+    "text": "Developed the full stack of a cross-platform application using C#, MAUI, and SQL Server. Collaborated with the development team to troubleshoot and resolve technical issues, ensuring smooth functionality and meeting project objectives."
+  },
+  {
+    "title": "Front End Software Engineering Intern",
+    "company": "MILL5",
+    "location": "Boston, MA",
+    "period": "May 2022 - Aug. 2022",
+    "text": "Established customer-facing React apps with JavaScript and TypeScript, facilitating the review and adjustment of licenses, payments, and settings. Segmented a large codebase into modular components to adhere to clean architecture principles, improving maintainability and scalability. Implemented GitHub Workflows to fully automate versioning, packaging, and publishing to private NuGet Package."
+  }
+]

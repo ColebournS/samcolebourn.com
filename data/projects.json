@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Personal Finance Tracker",
+    "description": "Built full-stack app to track income, budgeting, and purchases using JS and Supabase/PostgreSQL. Implemented secure user authentication via Supabase Auth and real-time dashboards for insights.",
+    "when": "Jan. 2025 - Present"
+  },
+  {
+    "name": "Real-Time Voice Separation with Multiple Speakers",
+    "description": "Built a real-time voice separation application to evaluate pre-trained models in live audio scenarios. Designed a modular system with tunable frame lengths/overlaps to optimize latency and audio clarity.",
+    "when": "Sep. 2024 - Dec. 2024"
+  },
+  {
+    "name": "Remote Energy Monitoring System Project",
+    "description": "Created a Remote Energy Monitoring System for micro-hydro plants in Indonesia. Developed React application with real-time energy monitoring through AWS IoT Core integration.",
+    "when": "Sep. 2023 - Dec. 2023"
+  },
+  {
+    "name": "Hospital Kiosk Application - Lead Software Developer",
+    "description": "Led a 10-member team in developing a Hospital Kiosk application, following agile development. Developed a robust and efficient system using Java, Hibernate ORM, and Postgres. Conducted code reviews and JUnit testing, ensuring high-quality code and adherence to best coding practices.",
+    "when": "Jan. 2023 - Mar. 2023"
+  }
+]

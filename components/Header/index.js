@@ -7,8 +7,8 @@ import React, { useEffect, useState } from "react"
 import Button from "../Button"
 
 const Header = ({
-  handleWorkScroll,
   handleAboutScroll,
+  handleWorkScroll,
   handleContactScroll,
   isBlog,
 }) => {
@@ -77,8 +77,8 @@ const Header = ({
             >
               {!isBlog ? (
                 <div className="grid grid-cols-1">
-                  <Button onClick={handleWorkScroll}>Work</Button>
                   <Button onClick={handleAboutScroll}>About</Button>
+                  <Button onClick={handleWorkScroll}>Work</Button>
                   <Button onClick={handleContactScroll}>Contact</Button>
                   <Button
                     onClick={() =>
@@ -122,8 +122,8 @@ const Header = ({
         </h1>
         {!isBlog ? (
           <div className={`flex`}>
-            <Button onClick={handleWorkScroll}>Work</Button>
             <Button onClick={handleAboutScroll}>About</Button>
+            <Button onClick={handleWorkScroll}>Work</Button>
             <Button onClick={handleContactScroll}>Contact</Button>
 
             {mounted && theme && (
