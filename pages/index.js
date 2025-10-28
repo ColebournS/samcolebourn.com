@@ -5,6 +5,7 @@ import WorkCard from "../components/WorkCard"
 import { useIsomorphicLayoutEffect } from "../utils"
 import { stagger } from "../animations"
 import Socials from "../components/Socials"
+import FluidCursor from "../components/FluidCursor"
 import Head from "next/head"
 import Image from "next/image"
 import workData from "../data/work.json"
@@ -55,6 +56,8 @@ export default function Home() {
       <Head>
         <title>Sam Colebourn</title>
       </Head>
+      
+      <FluidCursor />
 
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
@@ -96,7 +99,7 @@ export default function Home() {
         </div>
         <div className="mt-10 laptop:mt-10 p-2 laptop:p-0" ref={aboutRef}>
           <h1 className="tablet:my-10 tablet:mx-10 text-4xl text-bold">About</h1>
-          <p className="tablet:mx-10 mt-2 text-xl laptop:text-xl w-full">
+          <p className="tablet:mx-10 mt-2 text-xl laptop:text-xl max-w-6xl">
             I am a Software Engineer at Jahnel Group, where I develop REST APIs
             in Python that support an application with over 1B downloads and 70M
             monthly active users. I graduated from Worcester Polytechnic
