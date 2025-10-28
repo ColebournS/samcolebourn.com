@@ -70,13 +70,13 @@ export default function Home() {
             <div className="flex flex-col">
               <h1
                 ref={textOne}
-                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold"
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl tablet:mx-10 text-bold"
               >
                 Sam Colebourn
               </h1>
               <h1
                 ref={textTwo}
-                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2  text-bold"
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl tablet:mx-10 text-bold"
               >
                 Software Engineer
               </h1>
@@ -95,7 +95,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-10 laptop:mt-10 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:my-10 text-4xl text-bold">About</h1>
+          <h1 className="tablet:my-10 tablet:mx-10 text-4xl text-bold">About</h1>
           <p className="tablet:mx-10 mt-2 text-xl laptop:text-xl w-full">
             I am a Software Engineer at Jahnel Group, where I develop REST APIs
             in Python that support an application with over 1B downloads and 70M
@@ -107,7 +107,7 @@ export default function Home() {
           </p>
         </div>
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="tablet:my-10 text-4xl text-bold">Work</h1>
+          <h1 className="tablet:my-10 tablet:mx-10 text-4xl text-bold">Work</h1>
           <div className="mt-5 tablet:m-10 space-y-6">
             {/* First item - full width */}
             <div className="w-full">
@@ -137,7 +137,7 @@ export default function Home() {
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="tablet:my-10 text-4xl text-bold">Projects</h1>
+          <h1 className="tablet:my-10 tablet:mx-10 text-4xl text-bold">Projects</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {projectsData.map((project, index) => (
               <WorkCard
@@ -152,14 +152,14 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-10 laptop:mt-10 p-2 laptop:p-0" ref={contactRef}>
-          <h1 className="mt-20 mb-10 text-4xl text-bold">Contact</h1>
+          <h1 className="mt-20 mb-10 tablet:mx-10 text-4xl text-bold">Contact</h1>
           <p className="tablet:mx-10 mt-2 text-5xl laptop:text-5xl w-full laptop:w-3/5 my-5">
             Let&apos;s Work Together!
           </p>
 
           <a
-            className="text-sm tablet:text-base p-1 laptop:p-2 mx-10 my-10 rounded-lg bg-white text-black"
-            onClick={() => window.open("mailto:sam.colebourn@gmail.com")}
+            className="text-sm tablet:text-base p-1 laptop:p-2 mx-10 my-10 rounded-lg bg-slate-100 text-black dark:bg-slate-800 dark:text-white"
+            href="mailto:sam.colebourn@gmail.com"
           >
             Schedule a call
           </a>
