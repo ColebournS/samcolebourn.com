@@ -1,11 +1,19 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import useFluidCursor from '../../lib/useFluidCursor';
 
 const FluidCursor = () => {
+  const initializedRef = useRef(false);
+
   useEffect(() => {
-    useFluidCursor();
+    // Only initialize once when component mounts
+    if (!initializedRef.current) {
+      initializedRef.current = true;
+      // Call the initialization function (not actually a React hook)
+      const initializeFluid = useFluidCursor;
+      initializeFluid();
+    }
   }, []);
 
   return (
