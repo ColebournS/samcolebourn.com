@@ -120,6 +120,7 @@ export default function Home() {
                 location={workData[0].location}
                 period={workData[0].period}
                 text={workData[0].text}
+                skills={workData[0].skills}
               />
             </div>
             
@@ -133,6 +134,7 @@ export default function Home() {
                   location={work.location}
                   period={work.period}
                   text={work.text}
+                  skills={work.skills}
                 />
               ))}
             </div>
@@ -150,6 +152,8 @@ export default function Home() {
                 location=""
                 period={project.when}
                 text={project.description}
+                techStack={project.techStack}
+                outcomes={project.outcomes}
               />
             ))}
           </div>
