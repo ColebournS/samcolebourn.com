@@ -1,4 +1,6 @@
 import { useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import ServiceCard from "../components/ServiceCard"
@@ -16,6 +18,11 @@ export default function Home() {
   const textTwo = useRef()
   const textThree = useRef()
   const contactRef = useRef()
+  const navWordmarkRef = useRef()
+
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   const handleWorkScroll = () => {
     window.scrollTo({
@@ -43,10 +50,41 @@ export default function Home() {
 
   useIsomorphicLayoutEffect(() => {
     stagger(
-      [textOne.current, textTwo.current, textThree.current],
+      [textTwo.current, textThree.current],
       { y: 16 },
       { y: 0 }
     )
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReduced) {
+      if (navWordmarkRef.current) {
+        gsap.set(navWordmarkRef.current, { opacity: 1 })
+      }
+      return
+    }
+
+    const ctx = gsap.context(() => {
+      const hero = textOne.current
+      const nav = navWordmarkRef.current
+
+      if (!hero || !nav) return
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top+=72",
+          end: "+=160",
+          scrub: 0.6,
+        }
+      })
+
+      tl.to(nav, {
+        opacity: 1,
+        ease: "none",
+      }, 0.4)
+    }, textOne)
+
+    return () => ctx.revert()
   }, [])
 
   return (
@@ -66,6 +104,8 @@ export default function Home() {
           handleAboutScroll={handleAboutScroll}
           handleWorkScroll={handleWorkScroll}
           handleContactScroll={handleContactScroll}
+          navWordmarkRef={navWordmarkRef}
+          isHome={true}
         />
         <main id="main-content" className="pt-16 tablet:pt-[72px]">
           <section className="py-8 laptop:py-12 flex flex-col tablet:flex-row gap-8">

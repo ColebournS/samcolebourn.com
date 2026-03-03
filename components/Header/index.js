@@ -33,6 +33,8 @@ const Header = ({
   handleWorkScroll,
   handleContactScroll,
   isBlog,
+  isHome,
+  navWordmarkRef,
 }) => {
   const router = useRouter();
   const scrolled = useNavScroll();
@@ -56,7 +58,10 @@ const Header = ({
             {/* Wordmark */}
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" passHref>
-                <a className="font-medium text-neutral-900 hover:opacity-70 transition-opacity focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 rounded px-2 py-1 -ml-2">
+                <a 
+                  ref={navWordmarkRef}
+                  className={`font-medium text-neutral-900 hover:opacity-70 transition-opacity focus:outline-none rounded px-2 py-1 -ml-2 ${isHome ? 'opacity-0' : ''}`}
+                >
                   <span className="tablet:hidden">SC</span>
                   <span className="hidden tablet:block">Sam Colebourn</span>
                 </a>
@@ -69,7 +74,7 @@ const Header = ({
                 <button
                   key={link.name}
                   onClick={link.action}
-                  className="px-4 py-2 text-sm font-medium text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2"
+                  className="px-4 py-2 text-sm font-medium text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors focus:outline-none"
                 >
                   {link.name}
                 </button>
