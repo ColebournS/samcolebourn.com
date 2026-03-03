@@ -142,6 +142,7 @@ export default function Home() {
                   text={project.description}
                   techStack={project.techStack}
                   outcomes={project.outcomes}
+                  repoLink={project.repoLink}
                 />
               ))}
             </div>

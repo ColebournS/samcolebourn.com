@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 
-const WorkCard = ({ title, company, location, period, text, skills, techStack, outcomes }) => {
+const WorkCard = ({ title, company, location, period, text, skills, techStack, outcomes, repoLink }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const openModal = () => setIsOpen(true)
@@ -88,6 +88,20 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
                         <p className="text-base text-neutral-700 leading-relaxed">
                           {outcomes}
                         </p>
+                      </div>
+                    )}
+
+                    {repoLink && (
+                      <div className="flex flex-col gap-2">
+                        <h4 className="text-xs font-medium tracking-widest uppercase text-neutral-500">Repository</h4>
+                        <a 
+                          href={repoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent hover:text-accent-hover focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 w-fit text-base font-medium"
+                        >
+                          View repository
+                        </a>
                       </div>
                     )}
 
