@@ -50,7 +50,7 @@ export default function Home() {
 
   useIsomorphicLayoutEffect(() => {
     stagger(
-      [textOne.current, textTwo.current, textThree.current],
+      [textTwo.current, textThree.current],
       { y: 16 },
       { y: 0 }
     )
@@ -69,57 +69,19 @@ export default function Home() {
 
       if (!hero || !nav) return
 
-      // Pre-set styles
-      gsap.set(hero, { transformOrigin: "top left" })
-
-      let x = 0, y = 0, scale = 1
-
-      const calculateValues = () => {
-        // Clear any existing transforms to get true initial rects
-        gsap.set(hero, { clearProps: "all" })
-        gsap.set(nav, { clearProps: "all" })
-        gsap.set(hero, { transformOrigin: "top left" })
-
-        const heroRect = hero.getBoundingClientRect()
-        const navRect = nav.getBoundingClientRect()
-
-        const heroTop = heroRect.top + window.scrollY
-        const heroLeft = heroRect.left + window.scrollX
-        const navTop = navRect.top + window.scrollY
-        const navLeft = navRect.left + window.scrollX
-
-        x = navLeft - heroLeft
-        y = navTop - heroTop
-        scale = navRect.height / heroRect.height
-      }
-
-      // Initial calculation
-      calculateValues()
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: "top top+=72",
           end: "+=160",
           scrub: 0.6,
-          invalidateOnRefresh: true,
-          onRefresh: calculateValues,
         }
       })
 
-      // We use function-based values so invalidateOnRefresh will pick up new values
-      tl.to(hero, {
-        x: () => x,
-        y: () => y,
-        scale: () => scale,
-        opacity: 0,
-        ease: "none",
-      }, 0)
-      .to(nav, {
+      tl.to(nav, {
         opacity: 1,
         ease: "none",
       }, 0.4)
-
     }, textOne)
 
     return () => ctx.revert()
@@ -151,7 +113,6 @@ export default function Home() {
               <h1
                 ref={textOne}
                 className="text-4xl tablet:text-5xl laptop:text-6xl font-semibold leading-tight tracking-tight text-neutral-900"
-                style={{ willChange: 'transform, opacity' }}
               >
                 Sam Colebourn
               </h1>
