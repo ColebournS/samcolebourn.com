@@ -58,7 +58,7 @@ const Footer = React.forwardRef((props, ref) => {
   return (
     <footer
       ref={setRefs}
-      className="bg-white border-t border-neutral-100 pt-16 pb-12 laptop:pt-24 laptop:pb-16 mt-16 laptop:mt-24 w-full"
+      className="bg-white border-t border-neutral-100 pt-16 pb-12 laptop:pt-24 laptop:pb-16 mt-16 laptop:mt-24 w-full rounded-t-xl"
     >
       <div className="max-w-desktop mx-auto px-6 tablet:px-8 laptop:px-12">
         <div className="flex flex-col laptop:flex-row gap-12 laptop:gap-24 laptop:items-start">
