@@ -61,14 +61,14 @@ export default function Home() {
 
       <div className="gradient-bloom"></div>
 
-      <div className="container mx-auto px-4 tablet:px-6 laptop:px-8 mb-16">
+      <div className="container mx-auto px-4 tablet:px-6 laptop:px-8 mb-6">
         <Header
           handleAboutScroll={handleAboutScroll}
           handleWorkScroll={handleWorkScroll}
           handleContactScroll={handleContactScroll}
         />
         <main id="main-content">
-          <section className="py-24 laptop:py-32 flex flex-col tablet:flex-row gap-8">
+          <section className="py-8 laptop:py-12 flex flex-col tablet:flex-row gap-8">
             <div className="flex flex-col gap-2">
               <h1
                 ref={textOne}
@@ -85,7 +85,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="py-16 laptop:py-24" ref={aboutRef}>
+          <section className="py-6 laptop:py-8" ref={aboutRef}>
             <h2 className="text-xs tablet:text-sm font-medium tracking-widest uppercase text-neutral-500 mb-6">About</h2>
             <p className="text-base tablet:text-lg font-normal leading-relaxed text-neutral-700 max-w-4xl">
               I am a Software Engineer at Jahnel Group, where I develop REST APIs
@@ -98,7 +98,7 @@ export default function Home() {
             </p>
           </section>
 
-          <section className="py-16 laptop:py-24 relative" ref={workRef}>
+          <section className="py-8 laptop:py-12 relative" ref={workRef}>
             <div className="gradient-wash"></div>
             <h2 className="text-xs tablet:text-sm font-medium tracking-widest uppercase text-neutral-500 mb-8">Work</h2>
             <div className="space-y-6">
@@ -129,7 +129,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="py-16 laptop:py-24">
+          <section className="py-8 laptop:py-12">
             <h2 className="text-xs tablet:text-sm font-medium tracking-widest uppercase text-neutral-500 mb-8">Projects</h2>
             <div className="grid grid-cols-1 laptop:grid-cols-2 gap-6">
               {projectsData.map((project, index) => (
@@ -147,7 +147,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="py-24 laptop:py-32" ref={contactRef}>
+          <section className="py-8 laptop:py-12" ref={contactRef}>
             <h2 className="text-xs tablet:text-sm font-medium tracking-widest uppercase text-neutral-500 mb-6">Contact</h2>
             <p className="text-3xl tablet:text-4xl font-semibold leading-tight tracking-tight text-neutral-900 w-full laptop:w-3/5 mb-8">
               Let&apos;s Work Together!
@@ -161,7 +161,7 @@ export default function Home() {
             </a>
           </section>
 
-          <div className="pt-16 pb-8 flex justify-center">
+          <div className="pt-8 pb-4 flex justify-center">
             <Socials />
           </div>
         </main>
