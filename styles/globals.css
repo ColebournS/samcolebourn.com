@@ -10,6 +10,9 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
   font-family: var(--font-body);
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +20,15 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #F6F8FB; /* neutral-50 — matches page so no white at viewport edges */
   overflow-x: hidden;
+}
+
+#__next {
+  min-height: 100%;
 }
 
 /* Subtle radial bloom — hero background layer only */
