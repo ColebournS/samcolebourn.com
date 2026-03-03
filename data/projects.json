@@ -4,7 +4,8 @@
     "description": "Built full-stack app to track income, budgeting, and purchases using JS and Supabase/PostgreSQL. Implemented secure user authentication via Supabase Auth and real-time dashboards for insights.",
     "when": "Jan. 2025 - Present",
     "techStack": ["JavaScript", "React", "Supabase", "PostgreSQL"],
-    "outcomes": "Achieved real-time synchronization of transactions and robust authentication."
+    "outcomes": "Achieved real-time synchronization of transactions and robust authentication.",
+    "repoLink": "https://github.com/scolebourn/finance-tracker"
   },
   {
     "name": "Real-Time Voice Separation with Multiple Speakers",
