@@ -147,23 +147,13 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="py-8 laptop:py-12" ref={contactRef}>
-            <h2 className="text-xs tablet:text-sm font-medium tracking-widest uppercase text-neutral-500 mb-6">Contact</h2>
-            <p className="text-3xl tablet:text-4xl font-semibold leading-tight tracking-tight text-neutral-900 w-full laptop:w-3/5 mb-8">
+          <footer className="py-8 laptop:py-12 flex flex-col items-center justify-center text-center" ref={contactRef}>
+            <h2 className="text-xs tablet:text-sm font-medium tracking-widest uppercase text-neutral-500 mb-4">Contact</h2>
+            <p className="text-2xl tablet:text-3xl font-semibold leading-tight tracking-tight text-neutral-900 mb-6">
               Let&apos;s Work Together!
             </p>
-
-            <a
-              className="inline-flex items-center justify-center bg-accent text-white font-medium px-6 py-3 rounded-md min-h-[44px] transition-colors duration-200 hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2"
-              href="mailto:sam.colebourn@gmail.com"
-            >
-              Schedule a call
-            </a>
-          </section>
-
-          <div className="pt-8 pb-4 flex justify-center">
             <Socials />
-          </div>
+          </footer>
         </main>
       </div>
     </div>
