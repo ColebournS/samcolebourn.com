@@ -10,6 +10,8 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-body);
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
@@ -17,6 +19,8 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 
