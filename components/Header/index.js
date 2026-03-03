@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { Popover } from "@headlessui/react"
-import { useTheme } from "next-themes"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import Button from "../Button"
@@ -13,7 +12,6 @@ const Header = ({
   isBlog,
 }) => {
   const router = useRouter()
-  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,35 +43,18 @@ const Header = ({
               </h1>
 
               <div className="flex items-center">
-                <Button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                >
-                  <img
-                    className="h-6"
-                    src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                  ></img>
-                </Button>
-
                 <Popover.Button>
                   <img
                     className="h-5"
                     src={`/images/${
-                      !open
-                        ? theme === "dark"
-                          ? "menu-white.svg"
-                          : "menu.svg"
-                        : theme === "light"
-                        ? "cancel.svg"
-                        : "cancel-white.svg"
+                      !open ? "menu.svg" : "cancel.svg"
                     }`}
                   ></img>
                 </Popover.Button>
               </div>
             </div>
             <Popover.Panel
-              className={`absolute right-0 z-10 w-11/12 p-4 ${
-                theme === "light" ? "bg-white" : "bg-slate-800"
-              } shadow-md rounded-md`}
+              className={`absolute right-0 z-10 w-11/12 p-4 bg-white shadow-md rounded-md`}
             >
               {!isBlog ? (
                 <div className="grid grid-cols-1">
@@ -107,9 +88,7 @@ const Header = ({
       </Popover>
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          scrolled && theme === "dark"
-            ? "bg-[#121212] rounded-lg"
-            : scrolled && theme === "light"
+          scrolled
             ? "bg-white"
             : "bg-transparent"
         } light:text-black top-0 z-10 tablet:flex`}
@@ -125,17 +104,6 @@ const Header = ({
             <Button onClick={handleAboutScroll}>About</Button>
             <Button onClick={handleWorkScroll}>Work</Button>
             <Button onClick={handleContactScroll}>Contact</Button>
-
-            {mounted && theme && (
-              <Button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                <img
-                  className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
-              </Button>
-            )}
           </div>
         ) : (
           <div className="flex">
@@ -143,17 +111,6 @@ const Header = ({
             <Button onClick={() => router.push("/resume")} classes="first:ml-1">
               Resume
             </Button>
-
-            {mounted && theme && (
-              <Button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                <img
-                  className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
-              </Button>
-            )}
           </div>
         )}
       </div>
