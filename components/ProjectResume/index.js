@@ -4,17 +4,17 @@ const ProjectResume = ({ dates, type, position, bullets }) => {
   const [bulletsLocal, setBulletsLocal] = React.useState(bullets)
 
   return (
-    <div className="mt-5 w-full flex mob:flex-col desktop:flex-row justify-between">
-      <div className="text-lg w-2/5">
-        <h2>{dates}</h2>
-        <h3 className="text-sm opacity-50">{type}</h3>
+    <div className="w-full flex flex-col desktop:flex-row gap-4 desktop:gap-8 justify-between">
+      <div className="desktop:w-1/3 flex flex-col gap-1">
+        <h3 className="text-base font-semibold text-neutral-900">{dates}</h3>
+        <span className="text-sm text-neutral-500">{type}</span>
       </div>
-      <div className="w-3/5">
-        <h2 className="text-lg font-bold">{position}</h2>
+      <div className="desktop:w-2/3 flex flex-col gap-3">
+        <h4 className="text-lg font-semibold text-neutral-900">{position}</h4>
         {bulletsLocal && bulletsLocal.length > 0 && (
-          <ul className="list-disc">
+          <ul className="flex flex-col gap-2 list-disc ml-5 text-neutral-700 text-base leading-relaxed">
             {bulletsLocal.map((bullet, index) => (
-              <li key={index} className="text-sm my-1 opacity-70">
+              <li key={index}>
                 {bullet}
               </li>
             ))}

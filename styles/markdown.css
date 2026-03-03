@@ -75,8 +75,16 @@
 
 
 
-/* Image */
+/* Code Blocks - Added per spec */
 
-.markdown-class img {
-  @apply max-h-96 w-full my-5 object-cover rounded-lg shadow-lg;
+.markdown-class pre {
+  @apply bg-neutral-50 border border-neutral-100 rounded-lg p-6 overflow-x-auto;
+}
+
+.markdown-class pre code {
+  @apply font-mono text-sm text-neutral-700 leading-relaxed bg-transparent p-0 border-none;
+}
+
+.markdown-class code {
+  @apply font-mono text-sm text-neutral-700 bg-neutral-100 px-1.5 py-0.5 rounded;
 }

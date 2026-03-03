@@ -7,98 +7,100 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
   const openModal = () => setIsOpen(true)
   const closeModal = () => setIsOpen(false)
 
-  const hasExtraInfo = skills || techStack || outcomes
-
   return (
     <>
-      <div
+      <article
         onClick={openModal}
-        className={`card w-full p-4 mob:p-6 rounded-lg transition-all ease-out duration-300 bg-slate-100 hover:scale-105 cursor-pointer h-full`}
+        className={`group relative w-full p-6 rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-200 ease-out hover:shadow-md hover:border-neutral-200 cursor-pointer h-full`}
       >
-        <div className="flex flex-col space-y-3 h-full">
-          <div className="flex flex-col">
-            <h2 className="text-lg opacity-60 font-medium">{period}</h2>
-            <h1 className="text-2xl font-semibold">{title}</h1>
-            {(company && company.trim() !== "") || (location && location.trim() !== "") ? (
-              <div className="flex flex-row items-center space-x-2">
-                {company && company.trim() !== "" && <h3 className="text-lg font-medium">{company}</h3>}
-                {location && location.trim() !== "" && <h4 className="text-sm opacity-70">{location}</h4>}
+        <div className="gradient-surface"></div>
+        <div className="flex flex-col gap-4 h-full relative z-10">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-xs font-medium tracking-widest uppercase text-neutral-500">{period}</h2>
+            <h3 className="text-xl font-semibold text-neutral-900 leading-snug">{title}</h3>
+            {(company || location) && (
+              <div className="flex flex-row items-center gap-2 mt-1">
+                {company && <span className="text-sm font-medium text-neutral-900">{company}</span>}
+                {company && location && <span className="text-neutral-200 inline-block w-px h-3"></span>}
+                {location && <span className="text-sm text-neutral-500">{location}</span>}
               </div>
-            ) : null}
+            )}
           </div>
           
           {text && (
-            <p className="text-sm opacity-80 leading-relaxed line-clamp-3 mb-auto">
+            <p className="text-base text-neutral-500 leading-relaxed line-clamp-3 mb-auto">
               {text}
             </p>
           )}
         </div>
-      </div>
+      </article>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
-            enter="ease-out duration-300"
+            enter="transition duration-200 ease-out"
             enterFrom="opacity-0"
             enterTo="opacity-100"
-            leave="ease-in duration-200"
+            leave="transition duration-150 ease-in"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-50" />
+            <div className="fixed inset-0 bg-neutral-900/40 backdrop-blur-sm" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
+                enter="transition duration-200 ease-out"
+                enterFrom="opacity-0 translate-y-4"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition duration-150 ease-in"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-4"
               >
-                <Dialog.Panel className={`w-full max-w-2xl transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all bg-white text-black`}>
+                <Dialog.Panel className={`w-full max-w-2xl transform overflow-hidden rounded-xl border border-neutral-100 p-8 text-left align-middle shadow-lg transition-all bg-white`}>
                   <Dialog.Title
                     as="h3"
-                    className="text-2xl font-semibold leading-6 mb-2"
+                    className="text-2xl font-semibold leading-snug text-neutral-900 mb-2"
                   >
                     {title}
                   </Dialog.Title>
-                  <div className="flex flex-col space-y-4 mt-4">
-                    <div>
-                      {company && <h4 className="text-lg font-medium opacity-80">{company} {location && `- ${location}`}</h4>}
-                      <h5 className="text-md opacity-60">{period}</h5>
+                  <div className="flex flex-col gap-6 mt-6">
+                    <div className="flex flex-col gap-1">
+                      {company && <span className="text-base font-medium text-neutral-900">{company} {location && `— ${location}`}</span>}
+                      <span className="text-xs font-medium tracking-widest uppercase text-neutral-500">{period}</span>
                     </div>
                     
-                    <div>
-                      <h4 className="text-lg font-semibold mb-1">Description</h4>
-                      <p className="text-sm opacity-80 leading-relaxed">
-                        {text}
-                      </p>
-                    </div>
+                    {text && (
+                      <div className="flex flex-col gap-2">
+                        <h4 className="text-sm font-semibold text-neutral-900">Description</h4>
+                        <p className="text-base text-neutral-700 leading-relaxed">
+                          {text}
+                        </p>
+                      </div>
+                    )}
 
                     {outcomes && (
-                      <div>
-                        <h4 className="text-lg font-semibold mb-1">Outcomes</h4>
-                        <p className="text-sm opacity-80 leading-relaxed">
+                      <div className="flex flex-col gap-2">
+                        <h4 className="text-sm font-semibold text-neutral-900">Outcomes</h4>
+                        <p className="text-base text-neutral-700 leading-relaxed">
                           {outcomes}
                         </p>
                       </div>
                     )}
 
                     {(skills || techStack) && (
-                      <div>
-                        <h4 className="text-lg font-semibold mb-2">
+                      <div className="flex flex-col gap-3">
+                        <h4 className="text-sm font-semibold text-neutral-900">
                           {techStack ? "Tech Stack" : "Skills"}
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {(techStack || skills).map((item, index) => (
                             <span 
                               key={index}
-                              className={`px-3 py-1 rounded-full text-xs font-medium bg-slate-200 text-slate-800`}
+                              className={`px-2 py-1 rounded text-xs font-medium bg-neutral-100 text-neutral-700 border border-neutral-200`}
                             >
                               {item}
                             </span>
@@ -111,7 +113,7 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
                   <div className="mt-8 flex justify-end">
                     <button
                       type="button"
-                      className={`inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 bg-slate-200 text-slate-900 hover:bg-slate-300`}
+                      className={`inline-flex justify-center rounded-md px-6 py-3 min-h-[44px] text-sm font-medium border border-neutral-200 bg-white text-neutral-900 transition-colors duration-200 hover:bg-neutral-50 hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2`}
                       onClick={closeModal}
                     >
                       Close
