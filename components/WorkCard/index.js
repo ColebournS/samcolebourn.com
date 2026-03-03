@@ -98,7 +98,7 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
                           href={repoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-accent hover:text-accent-hover focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 w-fit text-base font-medium"
+                          className="text-accent hover:text-accent-hover focus:outline-none w-fit text-base font-medium"
                         >
                           View repository
                         </a>
