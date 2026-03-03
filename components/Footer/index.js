@@ -133,7 +133,7 @@ const Footer = React.forwardRef((props, ref) => {
               {/* Quote body */}
               <blockquote className="flex-1 text-base tablet:text-lg font-normal leading-relaxed text-neutral-700 flex flex-col gap-4">
                 <p>
-                  Sam picked up on all the technologies we gave him quickly. So much so that he passed his Azure certification the first time he took it.
+                  Sam picked up on all the technologies we gave him quickly.
                 </p>
                 <p>
                   He truly is not limited in what he can accomplish. Anyone that he works for will be better with Sam on their team.
