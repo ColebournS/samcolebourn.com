@@ -36,10 +36,6 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
               {text}
             </p>
           )}
-
-          <div className="text-sm font-medium mt-4 text-blue-500 opacity-80 pt-2 border-t border-slate-200 dark:border-slate-700">
-            Click to read more
-          </div>
         </div>
       </div>
 
