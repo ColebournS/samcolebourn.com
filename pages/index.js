@@ -1,10 +1,10 @@
 import { useRef } from "react"
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import ServiceCard from "../components/ServiceCard"
 import WorkCard from "../components/WorkCard"
 import { useIsomorphicLayoutEffect } from "../utils"
 import { stagger } from "../animations"
-import Socials from "../components/Socials"
 import Head from "next/head"
 import workData from "../data/work.json"
 import projectsData from "../data/projects.json"
@@ -147,13 +147,7 @@ export default function Home() {
             </div>
           </section>
 
-          <footer className="py-8 laptop:py-12 flex flex-col items-center justify-center text-center" ref={contactRef}>
-            <h2 className="text-xs tablet:text-sm font-medium tracking-widest uppercase text-neutral-500 mb-4">Contact</h2>
-            <p className="text-2xl tablet:text-3xl font-semibold leading-tight tracking-tight text-neutral-900 mb-6">
-              Let&apos;s Work Together!
-            </p>
-            <Socials />
-          </footer>
+          <Footer ref={contactRef} />
         </main>
       </div>
     </div>
