@@ -165,7 +165,7 @@ export default function Home() {
           </p>
 
           <a
-            className="text-sm tablet:text-base p-1 laptop:p-2 mx-10 my-10 rounded-lg bg-slate-100 text-black dark:bg-slate-800 dark:text-white"
+            className="text-sm tablet:text-base p-1 laptop:p-2 mx-10 my-10 rounded-lg bg-slate-100 text-black"
             href="mailto:sam.colebourn@gmail.com"
           >
             Schedule a call

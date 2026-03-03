@@ -4,11 +4,9 @@ import Header from "../components/Header"
 import ProjectResume from "../components/ProjectResume"
 import Socials from "../components/Socials"
 import Button from "../components/Button"
-import { useTheme } from "next-themes"
 
 const Resume = () => {
   const router = useRouter()
-  const theme = useTheme()
   const [mount, setMount] = useState(false)
 
   useEffect(() => {
@@ -22,9 +20,7 @@ const Resume = () => {
         {mount && (
           <div className="mt-10 w-full flex flex-col items-center">
             <div
-              className={`w-full ${
-                mount && theme.theme === "dark" ? "bg-slate-800" : "bg-gray-50"
-              } max-w-4xl p-20 mob:p-5 desktop:p-20 rounded-lg shadow-sm`}
+              className={`w-full bg-gray-50 max-w-4xl p-20 mob:p-5 desktop:p-20 rounded-lg shadow-sm`}
             >
               <h1 className="text-3xl font-bold">Sam Colebourn</h1>
               <h2 className="text-xl mt-5">
@@ -81,11 +77,7 @@ const Resume = () => {
                       Worcester Polytechnic Institute
                     </h2>
                     <h3
-                      className={`${
-                        mount && theme.theme === "dark"
-                          ? "border-slate-700"
-                          : "border-gray-100"
-                      } text-sm opacity-75 w-1/2 px-2 mx-2 text-center rounded-lg border-2`}
+                      className={`border-gray-100 text-sm opacity-75 w-1/2 px-2 mx-2 text-center rounded-lg border-2`}
                     >
                       GPA: 3.7/4.0
                     </h3>

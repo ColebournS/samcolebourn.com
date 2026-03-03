@@ -1,9 +1,7 @@
 import React, { useState, Fragment } from "react"
-import { useTheme } from "next-themes"
 import { Dialog, Transition } from "@headlessui/react"
 
 const WorkCard = ({ title, company, location, period, text, skills, techStack, outcomes }) => {
-  const { theme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
 
   const openModal = () => setIsOpen(true)
@@ -15,9 +13,7 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
     <>
       <div
         onClick={openModal}
-        className={`card w-full p-4 mob:p-6 rounded-lg transition-all ease-out duration-300 ${
-          theme === "light" ? "bg-slate-100" : "bg-slate-800"
-        } hover:scale-105 cursor-pointer h-full`}
+        className={`card w-full p-4 mob:p-6 rounded-lg transition-all ease-out duration-300 bg-slate-100 hover:scale-105 cursor-pointer h-full`}
       >
         <div className="flex flex-col space-y-3 h-full">
           <div className="flex flex-col">
@@ -64,9 +60,7 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className={`w-full max-w-2xl transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all ${
-                  theme === "light" ? "bg-white text-black" : "bg-slate-900 text-white"
-                }`}>
+                <Dialog.Panel className={`w-full max-w-2xl transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all bg-white text-black`}>
                   <Dialog.Title
                     as="h3"
                     className="text-2xl font-semibold leading-6 mb-2"
@@ -104,11 +98,7 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
                           {(techStack || skills).map((item, index) => (
                             <span 
                               key={index}
-                              className={`px-3 py-1 rounded-full text-xs font-medium ${
-                                theme === "light" 
-                                  ? "bg-slate-200 text-slate-800" 
-                                  : "bg-slate-700 text-slate-200"
-                              }`}
+                              className={`px-3 py-1 rounded-full text-xs font-medium bg-slate-200 text-slate-800`}
                             >
                               {item}
                             </span>
@@ -121,11 +111,7 @@ const WorkCard = ({ title, company, location, period, text, skills, techStack, o
                   <div className="mt-8 flex justify-end">
                     <button
                       type="button"
-                      className={`inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
-                        theme === "light" 
-                          ? "bg-slate-200 text-slate-900 hover:bg-slate-300" 
-                          : "bg-slate-700 text-slate-100 hover:bg-slate-600"
-                      }`}
+                      className={`inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 bg-slate-200 text-slate-900 hover:bg-slate-300`}
                       onClick={closeModal}
                     >
                       Close
