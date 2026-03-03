@@ -1,0 +1,15 @@
+{
+  "affected_files": [
+    "components/Footer/index.js"
+  ],
+  "steps": [
+    "Insert a two-line contact prompt between the headline and the email link with specific content and classes.",
+    "Move the figcaption from the top div to below the blockquote, add border-t and pt-4 classes to it, and add flex-1 to the blockquote.",
+    "Trim the testimonial quote to 3 sentences focused on learning speed and endorsement."
+  ],
+  "self_assessment": {
+    "confidence": 1.0,
+    "uncertainty_areas": [],
+    "recommendation": "Proceed with edits using StrReplace."
+  }
+}
