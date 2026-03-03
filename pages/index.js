@@ -55,7 +55,7 @@ export default function Home() {
         <title>Sam Colebourn</title>
       </Head>
       
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-white focus:text-accent focus:z-[100] focus:ring-2 focus:ring-accent-ring">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[300] bg-accent text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2">
         Skip to main content
       </a>
 
@@ -67,7 +67,7 @@ export default function Home() {
           handleWorkScroll={handleWorkScroll}
           handleContactScroll={handleContactScroll}
         />
-        <main id="main-content">
+        <main id="main-content" className="pt-16 tablet:pt-[72px]">
           <section className="py-8 laptop:py-12 flex flex-col tablet:flex-row gap-8">
             <div className="flex flex-col gap-2">
               <h1

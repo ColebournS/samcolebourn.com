@@ -12,6 +12,9 @@ module.exports = {
       laptopl: "1440px",
     },
     extend: {
+      maxWidth: {
+        desktop: "1280px",
+      },
       colors: {
         neutral: {
           50:  "#F6F8FB",

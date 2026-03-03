@@ -18,7 +18,7 @@ const Resume = () => {
         <title>Resume - Sam Colebourn</title>
       </Head>
       
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-white focus:text-accent focus:z-[100] focus:ring-2 focus:ring-accent-ring">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[300] bg-accent text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2">
         Skip to main content
       </a>
 
@@ -28,7 +28,7 @@ const Resume = () => {
         <Header isBlog />
         
         {mount && (
-          <main id="main-content" className="mt-16 laptop:mt-24 w-full flex flex-col items-center">
+          <main id="main-content" className="mt-16 laptop:mt-24 pt-16 tablet:pt-[72px] w-full flex flex-col items-center">
             <article
               className={`w-full bg-white border border-neutral-100 max-w-4xl p-8 tablet:p-16 laptop:p-24 rounded-xl shadow-sm`}
             >

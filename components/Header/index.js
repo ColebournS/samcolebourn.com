@@ -1,9 +1,32 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { Popover, Transition } from "@headlessui/react"
-import { useRouter } from "next/router"
-import React, { useEffect, useState, Fragment } from "react"
-import Button from "../Button"
+import { Disclosure, Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState, Fragment } from "react";
+import Link from "next/link";
+
+const useNavScroll = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 8);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return scrolled;
+};
 
 const Header = ({
   handleAboutScroll,
@@ -11,108 +34,92 @@ const Header = ({
   handleContactScroll,
   isBlog,
 }) => {
-  const router = useRouter()
-  const [mounted, setMounted] = useState(false)
-  const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
+  const scrolled = useNavScroll();
 
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    setScrolled(offset > 0);
-  };
-
-  useEffect(() => {
-    setMounted(true);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const navLinks = isBlog
+    ? [
+        { name: "Home", action: () => router.push("/") },
+        { name: "Resume", action: () => router.push("/resume") },
+      ]
+    : [
+        { name: "About", action: handleAboutScroll },
+        { name: "Work", action: handleWorkScroll },
+        { name: "Contact", action: handleContactScroll },
+      ];
 
   return (
-    <nav aria-label="Main Navigation">
-      <Popover className="block tablet:hidden mt-5 relative z-50">
-        {({ open }) => (
+    <header className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? "nav-scrolled" : "bg-transparent border-transparent"}`}>
+      <Disclosure as="nav" aria-label="Main navigation" className="mx-auto max-w-desktop h-16 tablet:h-[72px] px-6 tablet:px-8 laptop:px-12 flex items-center justify-between">
+        {({ open, close }) => (
           <>
-            <div className="flex items-center justify-between p-2 laptop:p-0">
-              <button
-                onClick={() => router.push("/")}
-                className="font-medium p-2 laptop:p-0 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 rounded"
-              >
-                Sam Colebourn
-              </button>
-
-              <div className="flex items-center">
-                <Popover.Button aria-label="Toggle Navigation" className="focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 rounded p-2">
-                  <img
-                    className="h-5"
-                    src={`/images/${!open ? "menu.svg" : "cancel.svg"}`}
-                  ></img>
-                </Popover.Button>
-              </div>
+            {/* Wordmark */}
+            <div className="flex-shrink-0 flex items-center">
+              <Link href="/" passHref>
+                <a className="font-medium text-neutral-900 hover:opacity-70 transition-opacity focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 rounded px-2 py-1 -ml-2">
+                  <span className="tablet:hidden">SC</span>
+                  <span className="hidden tablet:block">Sam Colebourn</span>
+                </a>
+              </Link>
             </div>
-            
+
+            {/* Desktop Links */}
+            <div className="hidden tablet:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={link.action}
+                  className="px-4 py-2 text-sm font-medium text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Toggle */}
+            <div className="flex tablet:hidden items-center">
+              <Disclosure.Button aria-label="Toggle Navigation" className="p-2 -mr-2 text-neutral-500 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 rounded-md min-h-[44px] min-w-[44px] flex items-center justify-center">
+                <img
+                  className="h-5 w-5"
+                  src={`/images/${!open ? "menu.svg" : "cancel.svg"}`}
+                  alt={open ? "Close menu" : "Open menu"}
+                />
+              </Disclosure.Button>
+            </div>
+
+            {/* Mobile Panel */}
             <Transition
               as={Fragment}
               enter="transition duration-200 ease-out"
-              enterFrom="opacity-0 -translate-y-1"
+              enterFrom="opacity-0 -translate-y-2"
               enterTo="opacity-100 translate-y-0"
               leave="transition duration-150 ease-in"
               leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 -translate-y-1"
+              leaveTo="opacity-0 -translate-y-2"
             >
-              <Popover.Panel
-                className={`absolute right-0 z-10 w-11/12 mt-2 p-4 bg-white shadow-lg rounded-xl border border-neutral-100`}
-              >
-                {!isBlog ? (
-                  <div className="flex flex-col gap-2">
-                    <Button type="ghost" onClick={handleAboutScroll}>About</Button>
-                    <Button type="ghost" onClick={handleWorkScroll}>Work</Button>
-                    <Button type="ghost" onClick={handleContactScroll}>Contact</Button>
-                  </div>
-                ) : (
-                  <div className="flex flex-col gap-2">
-                    <Button type="ghost" onClick={() => router.push("/")}>
-                      Home
-                    </Button>
-                    <Button type="ghost" onClick={() => router.push("/resume")}>
-                      Resume
-                    </Button>
-                  </div>
-                )}
-              </Popover.Panel>
+              <Disclosure.Panel className="absolute top-[100%] left-0 w-full bg-neutral-50 border-t border-neutral-100 shadow-sm tablet:hidden z-[60]">
+                <div className="px-4 pt-2 pb-4 space-y-1">
+                  {navLinks.map((link) => (
+                    <Disclosure.Button
+                      key={link.name}
+                      as="button"
+                      onClick={() => {
+                        if(link.action) link.action();
+                        close();
+                      }}
+                      className="block w-full text-left px-4 py-3 text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-ring"
+                    >
+                      {link.name}
+                    </Disclosure.Button>
+                  ))}
+                </div>
+              </Disclosure.Panel>
             </Transition>
           </>
         )}
-      </Popover>
-      <div
-        className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          scrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
-        } top-0 z-50 tablet:flex py-4 rounded-b-xl transition-all duration-200`}
-      >
-        <button
-          onClick={() => router.push("/")}
-          className="ml-4 font-medium text-neutral-900 focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 rounded px-2 py-1"
-        >
-          Sam Colebourn
-        </button>
-        {!isBlog ? (
-          <div className="flex gap-2 mr-4">
-            <Button type="ghost" onClick={handleAboutScroll}>About</Button>
-            <Button type="ghost" onClick={handleWorkScroll}>Work</Button>
-            <Button type="ghost" onClick={handleContactScroll}>Contact</Button>
-          </div>
-        ) : (
-          <div className="flex gap-2 mr-4">
-            <Button type="ghost" onClick={() => router.push("/")}>Home</Button>
-            <Button type="ghost" onClick={() => router.push("/resume")}>
-              Resume
-            </Button>
-          </div>
-        )}
-      </div>
-    </nav>
+      </Disclosure>
+    </header>
   );
-}
+};
 
-export default Header
+export default Header;
