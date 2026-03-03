@@ -5,7 +5,6 @@ import WorkCard from "../components/WorkCard"
 import { useIsomorphicLayoutEffect } from "../utils"
 import { stagger } from "../animations"
 import Socials from "../components/Socials"
-import FluidCursor from "../components/FluidCursor"
 import Head from "next/head"
 import Image from "next/image"
 import workData from "../data/work.json"
@@ -57,8 +56,6 @@ export default function Home() {
         <title>Sam Colebourn</title>
       </Head>
       
-      <FluidCursor />
-
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
 
