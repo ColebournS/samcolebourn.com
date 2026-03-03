@@ -66,12 +66,12 @@ const Footer = React.forwardRef((props, ref) => {
           {/* Left Column */}
           <div ref={leftColRef} className="flex-1 flex flex-col items-start gap-8">
 
-            {/* Headline */}
-            <h2 className="text-3xl tablet:text-4xl laptop:text-5xl font-semibold tracking-tight text-neutral-900 leading-tight">
+            {/* Headline — Section Title (H1) per Style Guide */}
+            <h2 className="text-3xl tablet:text-4xl font-semibold tracking-tight text-neutral-900 leading-tight">
               Let&apos;s Work<br />Together.
             </h2>
 
-            <p className="text-neutral-400 text-base leading-relaxed font-normal">
+            <p className="text-neutral-500 text-base tablet:text-lg font-normal leading-relaxed">
               Have a project in mind or want to talk?<br />
               Reach out directly.
             </p>
@@ -114,10 +114,6 @@ const Footer = React.forwardRef((props, ref) => {
               ))}
             </nav>
 
-            {/* Copyright */}
-            <p className="mt-auto pt-8 laptop:pt-16 text-xs font-medium text-neutral-500">
-              &copy; {new Date().getFullYear()} Sam Colebourn. All rights reserved.
-            </p>
           </div>
 
           {/* Right Column — Testimonial */}
@@ -129,7 +125,7 @@ const Footer = React.forwardRef((props, ref) => {
               flex flex-col gap-6
             ">
               <div className="flex items-start">
-                <span className="text-4xl font-semibold leading-none text-accent select-none" aria-hidden="true">
+                <span className="text-4xl font-semibold leading-none text-neutral-400 select-none" aria-hidden="true">
                   &ldquo;
                 </span>
               </div>
@@ -144,15 +140,14 @@ const Footer = React.forwardRef((props, ref) => {
                 </p>
               </blockquote>
 
-              <figcaption className="flex items-center gap-3 flex-shrink-0 border-t border-white/10 pt-4">
-                <div className="
-                  w-10 h-10 rounded-full flex-shrink-0
-                  bg-neutral-200 ring-1 ring-neutral-200
-                  flex items-center justify-center
-                  text-neutral-600 text-sm font-semibold
-                ">
-                  RC
-                </div>
+              <figcaption className="flex items-center gap-3 flex-shrink-0 border-t border-neutral-200 pt-4">
+                <img
+                  src="/images/rich_crane.jpeg"
+                  alt="Richard Crane"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-full flex-shrink-0 object-cover ring-1 ring-neutral-200"
+                />
                 <div className="flex flex-col gap-0.5">
                   <span className="text-sm font-semibold text-neutral-900">Richard Crane</span>
                   <span className="text-xs font-medium text-neutral-500">
