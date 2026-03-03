@@ -78,7 +78,7 @@ const Header = ({
 
             {/* Mobile Toggle */}
             <div className="flex tablet:hidden items-center">
-              <Disclosure.Button aria-label="Toggle Navigation" className="p-2 -mr-2 text-neutral-500 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-accent-ring focus:ring-offset-2 rounded-md min-h-[44px] min-w-[44px] flex items-center justify-center">
+              <Disclosure.Button aria-label="Toggle Navigation" className="p-2 -mr-2 text-neutral-500 hover:text-neutral-900 focus:outline-none rounded-md min-h-[44px] min-w-[44px] flex items-center justify-center">
                 <img
                   className="h-5 w-5"
                   src={`/images/${!open ? "menu.svg" : "cancel.svg"}`}
@@ -100,17 +100,16 @@ const Header = ({
               <Disclosure.Panel className="absolute top-[100%] left-0 w-full bg-neutral-50 border-t border-neutral-100 shadow-sm tablet:hidden z-[60]">
                 <div className="px-4 pt-2 pb-4 space-y-1">
                   {navLinks.map((link) => (
-                    <Disclosure.Button
+                    <button
                       key={link.name}
-                      as="button"
                       onClick={() => {
                         if(link.action) link.action();
                         close();
                       }}
-                      className="block w-full text-left px-4 py-3 text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-ring"
+                      className="block w-full text-left px-4 py-3 text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded-md focus:outline-none"
                     >
                       {link.name}
-                    </Disclosure.Button>
+                    </button>
                   ))}
                 </div>
               </Disclosure.Panel>
